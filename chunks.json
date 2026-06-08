@@ -952,5 +952,99 @@
         "video": null
       }
     ]
+  },
+  {
+    "id": "c031",
+    "chinese": "我不小心打错了",
+    "category": ["日常"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "That was a typo.",
+        "usageProbability": 80,
+        "context": "万能！美国人几乎不完整说 'I typed it wrong by accident'，太啰嗦。一个 typo 就够了。typo = 打字错误",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Sorry, I typed it wrong.",
+        "usageProbability": 15,
+        "context": "稍完整一点，带道歉语气，适合工作场景",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "My bad, that was a typo.",
+        "usageProbability": 5,
+        "context": "my bad = 我的锅/怪我。极随意，朋友间用",
+        "tone": "slang",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c032",
+    "chinese": "我今天没洗头 / 头发好油",
+    "category": ["日常"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "My hair is greasy today.",
+        "usageProbability": 70,
+        "context": "母语者直接描述结果（头发油），而不是描述'没洗'这个动作。greasy 是最常用词",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "I need to wash my hair.",
+        "usageProbability": 20,
+        "context": "委婉表达'我没洗头'，暗示头发需要洗了",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "I'm having a bad hair day.",
+        "usageProbability": 8,
+        "context": "万能金句！不仅指没洗头，还可以指发型爆炸、发胶没打好等一切头发问题。也有引申义：今天诸事不顺",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "My hair's a mess today.",
+        "usageProbability": 2,
+        "context": "简单直白，头发一团糟",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c033",
+    "chinese": "我刚吃了一点米饭和蔬菜，因为我最近在减肥",
+    "category": ["日常", "吃饭", "健康"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "I just had some rice and veggies. I'm trying to lose weight.",
+        "usageProbability": 75,
+        "context": "veggies = vegetables 口语缩写，跟朋友聊天必须用！trying to lose weight 比 I'm losing weight 更自然",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Just a bit of rice and veggies — I'm on a diet.",
+        "usageProbability": 20,
+        "context": "更简洁。on a diet 强调正在节食中，比 trying to lose weight 更直接",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "I just ate a little rice and vegetables. Trying to watch my weight.",
+        "usageProbability": 5,
+        "context": "watch my weight = 注意体重，比 diet 听起来更健康、更生活化",
+        "tone": "neutral",
+        "video": null
+      }
+    ]
   }
 ]
