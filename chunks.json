@@ -8,65 +8,50 @@
       {
         "text": "What have you been up to?",
         "usageProbability": 90,
-        "context": "朋友见面寒暄，最常用、最自然的说法",
+        "context": "朋友见面寒暄，最常用、最自然的说法，语调上扬表示关心",
         "tone": "casual",
-        "video": {
-          "bvid": "BV1jK4y1k7XQ",
-          "startTime": 12,
-          "endTime": 25,
-          "title": "美国人日常打招呼方式"
-        }
+        "video": null
       },
       {
         "text": "What's going on with you lately?",
         "usageProbability": 8,
-        "context": "稍微更关心对方近况的语气",
+        "context": "稍微更具体地问对方近况，比第一种更深入一点",
         "tone": "casual",
-        "video": {
-          "bvid": "BV1jK4y1k7XQ",
-          "startTime": 30,
-          "endTime": 43,
-          "title": "美国人日常打招呼方式"
-        }
+        "video": null
       },
       {
-        "text": "What have you been doing recently?",
+        "text": "How's everything going?",
         "usageProbability": 2,
-        "context": "稍微正式一点，但日常也可以用",
-        "tone": "neutral",
+        "context": "比较概括地问，对方可以回答任何方面的事情",
+        "tone": "casual",
         "video": null
       }
     ]
   },
   {
     "id": "c002",
-    "chinese": "你吃了没",
-    "category": ["日常", "社交"],
+    "chinese": "你吃了吗 / 你吃了没",
+    "category": ["日常", "吃饭", "社交"],
     "frequency": "high",
     "expressions": [
       {
         "text": "Did you eat yet?",
         "usageProbability": 85,
-        "context": "最直接的翻译，日常朋友间常用",
+        "context": "最直接的翻译，朋友间日常问候",
         "tone": "casual",
-        "video": {
-          "bvid": "BV1iK4y1k7YQ",
-          "startTime": 5,
-          "endTime": 18,
-          "title": "美国人吃饭场景对话"
-        }
+        "video": null
       },
       {
         "text": "Have you had lunch?",
         "usageProbability": 10,
-        "context": "具体到某一餐，更自然",
+        "context": "具体到某一餐，听起来更自然，像真的在关心对方",
         "tone": "casual",
         "video": null
       },
       {
         "text": "You hungry?",
         "usageProbability": 5,
-        "context": "更随意，朋友间常用，暗示一起去吃",
+        "context": "极其随意，暗示一起去吃东西",
         "tone": "slang",
         "video": null
       }
@@ -81,26 +66,21 @@
       {
         "text": "What do you do?",
         "usageProbability": 85,
-        "context": "最常用、最简洁的问法",
+        "context": "最常用、最简洁，默认就是在问工作",
         "tone": "casual",
-        "video": {
-          "bvid": "BV1jK4y1k7XQ",
-          "startTime": 50,
-          "endTime": 63,
-          "title": "美国人社交场景"
-        }
+        "video": null
       },
       {
         "text": "What do you do for a living?",
         "usageProbability": 12,
-        "context": "稍微正式一点，明确问职业",
+        "context": "明确是在问职业，稍微正式一点点",
         "tone": "neutral",
         "video": null
       },
       {
         "text": "What line of work are you in?",
         "usageProbability": 3,
-        "context": "比较礼貌正式的场合用",
+        "context": "比较正式、有礼貌，适合商务社交场合",
         "tone": "formal",
         "video": null
       }
@@ -115,26 +95,21 @@
       {
         "text": "I don't feel so good.",
         "usageProbability": 80,
-        "context": "最直白的表达，任何场合都能用",
+        "context": "最直白的表达，任何场合都能用，老少皆宜",
         "tone": "casual",
-        "video": {
-          "bvid": "BV1jK4y1k7XQ",
-          "startTime": 70,
-          "endTime": 83,
-          "title": "表达身体不舒服"
-        }
+        "video": null
       },
       {
         "text": "I'm under the weather.",
         "usageProbability": 15,
-        "context": "地道习语，轻微不舒服时用，美国人超爱说",
+        "context": "地道习语！轻微不舒服时用，美国人超爱说",
         "tone": "casual",
         "video": null
       },
       {
         "text": "I'm not feeling well.",
         "usageProbability": 5,
-        "context": "稍微正式，可以跟老板请假时说",
+        "context": "稍微正式一点，跟老板请假或写邮件时用",
         "tone": "neutral",
         "video": null
       }
@@ -144,31 +119,26 @@
     "id": "c005",
     "chinese": "就这么定了",
     "category": ["日常", "工作"],
-    "frequency": "medium",
+    "frequency": "high",
     "expressions": [
       {
         "text": "It's settled.",
         "usageProbability": 70,
-        "context": "干脆利落，表示事情敲定了",
+        "context": "干脆利落，表示事情已经敲定了、不用再讨论了",
         "tone": "neutral",
-        "video": {
-          "bvid": "BV1jK4y1k7XQ",
-          "startTime": 90,
-          "endTime": 100,
-          "title": "敲定计划场景"
-        }
+        "video": null
       },
       {
         "text": "Deal!",
         "usageProbability": 20,
-        "context": "很像讨价还价后成交的感觉，简洁有力",
+        "context": "像讨价还价后成交的感觉，简洁有力",
         "tone": "casual",
         "video": null
       },
       {
         "text": "That's that.",
         "usageProbability": 10,
-        "context": "带有一种'不用再讨论了'的语气",
+        "context": "带有一种'到此为止、不用再说了'的语气",
         "tone": "casual",
         "video": null
       }
@@ -183,26 +153,21 @@
       {
         "text": "It's on me.",
         "usageProbability": 80,
-        "context": "最常见、最地道的说法",
+        "context": "最常见、最地道的说法，相当于'算我的'",
         "tone": "casual",
-        "video": {
-          "bvid": "BV1jK4y1k7XQ",
-          "startTime": 105,
-          "endTime": 118,
-          "title": "请客吃饭场景"
-        }
+        "video": null
       },
       {
         "text": "My treat.",
         "usageProbability": 15,
-        "context": "也很常用，更热情一点",
+        "context": "也很常用，听起来更热情、更兴奋",
         "tone": "casual",
         "video": null
       },
       {
         "text": "I'm buying.",
         "usageProbability": 5,
-        "context": "非常口语化，年轻人用得多",
+        "context": "非常口语化，年轻人之间用，干脆直接",
         "tone": "slang",
         "video": null
       }
@@ -210,35 +175,35 @@
   },
   {
     "id": "c007",
-    "chinese": "随便你",
+    "chinese": "随便你 / 随你便",
     "category": ["日常"],
     "frequency": "high",
     "expressions": [
       {
         "text": "Up to you.",
         "usageProbability": 60,
-        "context": "最常用，中性的语气",
+        "context": "最常用，中性语气，把决定权给对方",
         "tone": "neutral",
         "video": null
       },
       {
         "text": "Whatever you want.",
         "usageProbability": 25,
-        "context": "比较随和，让对方做决定",
+        "context": "随和、友好，真的让对方选",
         "tone": "casual",
         "video": null
       },
       {
         "text": "I'm easy.",
         "usageProbability": 10,
-        "context": "地道英式/美式口语，表示我怎样都行",
+        "context": "地道口语，表示'我怎样都行'。注意不是'我很简单'！",
         "tone": "casual",
         "video": null
       },
       {
-        "text": "I don't care either way.",
+        "text": "Suit yourself.",
         "usageProbability": 5,
-        "context": "注意语气！容易被理解为你不在乎、冷漠",
+        "context": "小心！语气冷淡，相当于'你爱怎样就怎样'",
         "tone": "slang",
         "video": null
       }
@@ -253,21 +218,577 @@
       {
         "text": "Long time no see!",
         "usageProbability": 90,
-        "context": "最常用，直接对应中文'好久不见'",
+        "context": "最常用，直接对应'好久不见'，起源其实是中式英语被美国人接受了",
         "tone": "casual",
         "video": null
       },
       {
         "text": "It's been a while.",
         "usageProbability": 8,
-        "context": "稍微更自然、更口语的说法",
+        "context": "更自然、更口语化的说法",
         "tone": "casual",
         "video": null
       },
       {
         "text": "Haven't seen you in ages!",
         "usageProbability": 2,
-        "context": "夸张语气，表示真的很久没见了",
+        "context": "夸张语气，意思是'好几年没见了'，实际可能只有几个月",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c009",
+    "chinese": "你开玩笑吧 / 你认真的吗",
+    "category": ["日常", "社交"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "Are you serious?",
+        "usageProbability": 70,
+        "context": "最常用，表示不敢相信对方说的话",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "No way!",
+        "usageProbability": 20,
+        "context": "极其惊讶，口头禅级别的表达",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "You're kidding me, right?",
+        "usageProbability": 8,
+        "context": "带有一点怀疑，等待对方确认",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Get out of here!",
+        "usageProbability": 2,
+        "context": "不是真的让你走！是表示'别逗了、不可能吧'",
+        "tone": "slang",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c010",
+    "chinese": "你最近怎么样",
+    "category": ["社交", "日常"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "How's it going?",
+        "usageProbability": 85,
+        "context": "万能开场白，美国人见面最常说的问候",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "How have you been?",
+        "usageProbability": 10,
+        "context": "有一阵没见了的场合用，比上面更关心对方",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "What's new?",
+        "usageProbability": 5,
+        "context": "想问对方有没有新鲜事发生",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c011",
+    "chinese": "我先走了 / 我得走了",
+    "category": ["日常", "社交"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "I gotta go.",
+        "usageProbability": 70,
+        "context": "最常用，gotta=got to，快速自然的说法",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "I should get going.",
+        "usageProbability": 20,
+        "context": "稍微礼貌一点的告辞方式",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "I'm heading out.",
+        "usageProbability": 10,
+        "context": "侧重于'正在往外走'的动作，很口语",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c012",
+    "chinese": "晚安 / 早点休息",
+    "category": ["日常", "社交"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "Good night!",
+        "usageProbability": 60,
+        "context": "最标准的晚安",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "Sleep well!",
+        "usageProbability": 20,
+        "context": "温馨的祝福，适合跟家人或亲近的人说",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Night night!",
+        "usageProbability": 10,
+        "context": "可爱风，大人对小孩说，或亲密关系之间",
+        "tone": "slang",
+        "video": null
+      },
+      {
+        "text": "Sweet dreams!",
+        "usageProbability": 10,
+        "context": "浪漫温馨，祝对方做个好梦",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c013",
+    "chinese": "这个东西多少钱",
+    "category": ["购物", "日常"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "How much is this?",
+        "usageProbability": 80,
+        "context": "最常用、最直接的问价方式",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "How much does this cost?",
+        "usageProbability": 15,
+        "context": "稍完整一点，但不太常用，因为有点啰嗦",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "What's the price on this?",
+        "usageProbability": 5,
+        "context": "比较正式，适合在大商场或问贵重物品",
+        "tone": "formal",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c014",
+    "chinese": "太贵了 / 便宜点吧",
+    "category": ["购物", "日常"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "That's too expensive.",
+        "usageProbability": 60,
+        "context": "直接说太贵了",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "Can you go any lower?",
+        "usageProbability": 25,
+        "context": "讨价还价专用，'还能再便宜吗？'",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Any discount?",
+        "usageProbability": 10,
+        "context": "直接问有没有折扣，干脆利落",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "I'm on a budget.",
+        "usageProbability": 5,
+        "context": "委婉表达'我预算有限'，不伤面子地还价",
+        "tone": "neutral",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c015",
+    "chinese": "我没有时间",
+    "category": ["日常", "工作"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "I don't have time.",
+        "usageProbability": 60,
+        "context": "最直接，但听起来有点生硬",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "I'm busy.",
+        "usageProbability": 30,
+        "context": "最简洁的说法，也就一个字",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "I'm swamped.",
+        "usageProbability": 8,
+        "context": "地道俚语，意思是'我都忙疯了'，比 busy 更生动",
+        "tone": "slang",
+        "video": null
+      },
+      {
+        "text": "I can't make it.",
+        "usageProbability": 2,
+        "context": "用于拒绝邀约，'我去不了'的意思",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c016",
+    "chinese": "帮我个忙",
+    "category": ["日常", "社交"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "Can you do me a favor?",
+        "usageProbability": 80,
+        "context": "最标准的说法，礼貌得体",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "Could you help me out?",
+        "usageProbability": 15,
+        "context": "稍微更客气一点，help me out 是地道表达",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "I need a hand.",
+        "usageProbability": 5,
+        "context": "非常口语化，'give me a hand'的变体",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c017",
+    "chinese": "别担心 / 没事的",
+    "category": ["日常", "情感"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "Don't worry about it.",
+        "usageProbability": 70,
+        "context": "最常用，安慰对方不要担心",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "It's fine.",
+        "usageProbability": 20,
+        "context": "轻描淡写地表示没关系",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "No worries.",
+        "usageProbability": 8,
+        "context": "非常口语化，澳洲/英国人用得更多，但现在美国也很流行",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "It's all good.",
+        "usageProbability": 2,
+        "context": "轻松随意，'都好着呢、没问题'",
+        "tone": "slang",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c018",
+    "chinese": "我想点菜",
+    "category": ["吃饭", "日常"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "I'm ready to order.",
+        "usageProbability": 70,
+        "context": "叫服务员过来点菜时用的标准表达",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "Can I get the burger?",
+        "usageProbability": 20,
+        "context": "更地道的说法，直接用 Can I get... 而不是 I want...",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "I'll have the steak.",
+        "usageProbability": 10,
+        "context": "比 I want 礼貌得多，正式餐厅里要这样说",
+        "tone": "formal",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c019",
+    "chinese": "买单 / 结账",
+    "category": ["吃饭", "日常"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "Check, please.",
+        "usageProbability": 80,
+        "context": "美国餐厅最常用的结账方式，简单直接",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "Can I get the bill?",
+        "usageProbability": 15,
+        "context": "英国/加拿大更常用 bill，美国用 check",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "I'm ready for the check.",
+        "usageProbability": 5,
+        "context": "告知服务员可以结账了",
+        "tone": "neutral",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c020",
+    "chinese": "我该怎么办",
+    "category": ["日常", "情感"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "What should I do?",
+        "usageProbability": 80,
+        "context": "最标准的问法，寻求建议",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "What am I supposed to do?",
+        "usageProbability": 15,
+        "context": "带有困惑和无助的语气",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Any advice?",
+        "usageProbability": 5,
+        "context": "简洁，直接向对方寻求建议",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c021",
+    "chinese": "等一下 / 等等",
+    "category": ["日常"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "Hold on.",
+        "usageProbability": 60,
+        "context": "最常用，让对方稍微等一下",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Wait a sec.",
+        "usageProbability": 25,
+        "context": "sec=second，极其口语化",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Gimme a minute.",
+        "usageProbability": 8,
+        "context": "gimme=give me，'给我一分钟'的极简说法",
+        "tone": "slang",
+        "video": null
+      },
+      {
+        "text": "Hang on.",
+        "usageProbability": 7,
+        "context": "也很常用，意思和hold on一样",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c022",
+    "chinese": "太棒了 / 厉害了",
+    "category": ["日常", "社交"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "That's awesome!",
+        "usageProbability": 70,
+        "context": "美国人最爱说的赞美词，万能通用",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Amazing!",
+        "usageProbability": 15,
+        "context": "语气比awesome更强一点",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "That's sick!",
+        "usageProbability": 8,
+        "context": "年轻人用语，sick不是生病，是'太牛了'的意思",
+        "tone": "slang",
+        "video": null
+      },
+      {
+        "text": "Way to go!",
+        "usageProbability": 7,
+        "context": "表扬对方干得好、真棒",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c023",
+    "chinese": "我不在乎 / 无所谓",
+    "category": ["日常", "情感"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "I don't care.",
+        "usageProbability": 50,
+        "context": "最直接，但注意语气——容易听起来冷漠",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "I don't mind.",
+        "usageProbability": 30,
+        "context": "温和的'无所谓'，不排斥、不反对",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Either way is fine.",
+        "usageProbability": 15,
+        "context": "两种选择都可以，友好地无所谓",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Whatever.",
+        "usageProbability": 5,
+        "context": "危险！语气冷淡，容易激怒对方，相当于'随你便吧'",
+        "tone": "slang",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c024",
+    "chinese": "我懂了 / 明白了",
+    "category": ["日常", "工作"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "Got it.",
+        "usageProbability": 70,
+        "context": "最常用，干脆利落，表示听懂了",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "I see.",
+        "usageProbability": 15,
+        "context": "侧重于'理解了'，而不仅仅是听到了",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "That makes sense.",
+        "usageProbability": 10,
+        "context": "表示'说得通、有道理'，不仅仅是听到了",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "Ah, I get it now.",
+        "usageProbability": 5,
+        "context": "带有'哦恍然大悟'的感觉",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c025",
+    "chinese": "你今天看起来不错",
+    "category": ["社交", "日常"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "You look great today!",
+        "usageProbability": 70,
+        "context": "真诚赞美，日常用得最多",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Looking good!",
+        "usageProbability": 20,
+        "context": "极其简洁，随意间的赞美，朋友之间用",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "You look sharp!",
+        "usageProbability": 10,
+        "context": "专门夸穿着打扮好看，sharp=利落、时髦",
         "tone": "casual",
         "video": null
       }
