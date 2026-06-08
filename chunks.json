@@ -1,0 +1,276 @@
+[
+  {
+    "id": "c001",
+    "chinese": "你这几天在干嘛",
+    "category": ["社交", "日常"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "What have you been up to?",
+        "usageProbability": 90,
+        "context": "朋友见面寒暄，最常用、最自然的说法",
+        "tone": "casual",
+        "video": {
+          "bvid": "BV1jK4y1k7XQ",
+          "startTime": 12,
+          "endTime": 25,
+          "title": "美国人日常打招呼方式"
+        }
+      },
+      {
+        "text": "What's going on with you lately?",
+        "usageProbability": 8,
+        "context": "稍微更关心对方近况的语气",
+        "tone": "casual",
+        "video": {
+          "bvid": "BV1jK4y1k7XQ",
+          "startTime": 30,
+          "endTime": 43,
+          "title": "美国人日常打招呼方式"
+        }
+      },
+      {
+        "text": "What have you been doing recently?",
+        "usageProbability": 2,
+        "context": "稍微正式一点，但日常也可以用",
+        "tone": "neutral",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c002",
+    "chinese": "你吃了没",
+    "category": ["日常", "社交"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "Did you eat yet?",
+        "usageProbability": 85,
+        "context": "最直接的翻译，日常朋友间常用",
+        "tone": "casual",
+        "video": {
+          "bvid": "BV1iK4y1k7YQ",
+          "startTime": 5,
+          "endTime": 18,
+          "title": "美国人吃饭场景对话"
+        }
+      },
+      {
+        "text": "Have you had lunch?",
+        "usageProbability": 10,
+        "context": "具体到某一餐，更自然",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "You hungry?",
+        "usageProbability": 5,
+        "context": "更随意，朋友间常用，暗示一起去吃",
+        "tone": "slang",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c003",
+    "chinese": "你是做什么工作的",
+    "category": ["工作", "社交"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "What do you do?",
+        "usageProbability": 85,
+        "context": "最常用、最简洁的问法",
+        "tone": "casual",
+        "video": {
+          "bvid": "BV1jK4y1k7XQ",
+          "startTime": 50,
+          "endTime": 63,
+          "title": "美国人社交场景"
+        }
+      },
+      {
+        "text": "What do you do for a living?",
+        "usageProbability": 12,
+        "context": "稍微正式一点，明确问职业",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "What line of work are you in?",
+        "usageProbability": 3,
+        "context": "比较礼貌正式的场合用",
+        "tone": "formal",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c004",
+    "chinese": "我感觉不太舒服",
+    "category": ["日常", "健康"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "I don't feel so good.",
+        "usageProbability": 80,
+        "context": "最直白的表达，任何场合都能用",
+        "tone": "casual",
+        "video": {
+          "bvid": "BV1jK4y1k7XQ",
+          "startTime": 70,
+          "endTime": 83,
+          "title": "表达身体不舒服"
+        }
+      },
+      {
+        "text": "I'm under the weather.",
+        "usageProbability": 15,
+        "context": "地道习语，轻微不舒服时用，美国人超爱说",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "I'm not feeling well.",
+        "usageProbability": 5,
+        "context": "稍微正式，可以跟老板请假时说",
+        "tone": "neutral",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c005",
+    "chinese": "就这么定了",
+    "category": ["日常", "工作"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "It's settled.",
+        "usageProbability": 70,
+        "context": "干脆利落，表示事情敲定了",
+        "tone": "neutral",
+        "video": {
+          "bvid": "BV1jK4y1k7XQ",
+          "startTime": 90,
+          "endTime": 100,
+          "title": "敲定计划场景"
+        }
+      },
+      {
+        "text": "Deal!",
+        "usageProbability": 20,
+        "context": "很像讨价还价后成交的感觉，简洁有力",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "That's that.",
+        "usageProbability": 10,
+        "context": "带有一种'不用再讨论了'的语气",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c006",
+    "chinese": "我请客",
+    "category": ["社交", "吃饭"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "It's on me.",
+        "usageProbability": 80,
+        "context": "最常见、最地道的说法",
+        "tone": "casual",
+        "video": {
+          "bvid": "BV1jK4y1k7XQ",
+          "startTime": 105,
+          "endTime": 118,
+          "title": "请客吃饭场景"
+        }
+      },
+      {
+        "text": "My treat.",
+        "usageProbability": 15,
+        "context": "也很常用，更热情一点",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "I'm buying.",
+        "usageProbability": 5,
+        "context": "非常口语化，年轻人用得多",
+        "tone": "slang",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c007",
+    "chinese": "随便你",
+    "category": ["日常"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "Up to you.",
+        "usageProbability": 60,
+        "context": "最常用，中性的语气",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "Whatever you want.",
+        "usageProbability": 25,
+        "context": "比较随和，让对方做决定",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "I'm easy.",
+        "usageProbability": 10,
+        "context": "地道英式/美式口语，表示我怎样都行",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "I don't care either way.",
+        "usageProbability": 5,
+        "context": "注意语气！容易被理解为你不在乎、冷漠",
+        "tone": "slang",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c008",
+    "chinese": "好久不见",
+    "category": ["社交"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "Long time no see!",
+        "usageProbability": 90,
+        "context": "最常用，直接对应中文'好久不见'",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "It's been a while.",
+        "usageProbability": 8,
+        "context": "稍微更自然、更口语的说法",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Haven't seen you in ages!",
+        "usageProbability": 2,
+        "context": "夸张语气，表示真的很久没见了",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  }
+]

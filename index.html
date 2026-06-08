@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>ChunkTalk — 像美国人一样脱口而出</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== 顶部导航 ===== -->
+  <header class="header">
+    <h1 class="logo">🗣️ ChunkTalk</h1>
+    <p class="subtitle">像美国人一样脱口而出</p>
+  </header>
+
+  <!-- ===== 搜索栏 ===== -->
+  <div class="search-container">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="输入中文，比如：你这几天在干嘛" autocomplete="off">
+      <button class="search-clear" id="searchClear" style="display:none">✕</button>
+    </div>
+  </div>
+
+  <!-- ===== 分类标签 ===== -->
+  <div class="category-bar">
+    <button class="cat-tag active" data-cat="全部">全部</button>
+    <button class="cat-tag" data-cat="日常">💬 日常</button>
+    <button class="cat-tag" data-cat="社交">🤝 社交</button>
+    <button class="cat-tag" data-cat="工作">💼 工作</button>
+    <button class="cat-tag" data-cat="吃饭">🍽️ 吃饭</button>
+    <button class="cat-tag" data-cat="健康">🏥 健康</button>
+  </div>
+
+  <!-- ===== Chunk 列表 ===== -->
+  <main class="chunk-list" id="chunkList">
+    <!-- JS 动态渲染 -->
+  </main>
+
+  <!-- ===== 空状态 ===== -->
+  <div class="empty-state" id="emptyState" style="display:none">
+    <div class="empty-icon">😕</div>
+    <p>没找到相关表达</p>
+    <p class="empty-hint">换个关键词试试，或者去 B 站找找灵感？</p>
+  </div>
+
+  <!-- ===== 详情弹窗 ===== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+
+      <!-- 中文原句 -->
+      <div class="modal-chinese" id="modalChinese"></div>
+
+      <!-- 表达卡片（可滑动） -->
+      <div class="card-container" id="cardContainer">
+        <!-- JS 动态渲染 -->
+      </div>
+
+      <!-- 滑动指示器 -->
+      <div class="swipe-indicator">
+        <div class="swipe-dots" id="swipeDots"></div>
+        <span class="swipe-hint">← 左滑查看更多表达 →</span>
+      </div>
+
+      <!-- 场景说明 -->
+      <div class="modal-context" id="modalContext"></div>
+
+      <!-- B站视频 -->
+      <div class="video-container" id="videoContainer">
+        <div class="video-label">🎬 真实场景片段</div>
+        <div class="video-wrapper" id="videoWrapper">
+          <!-- B站 iframe -->
+        </div>
+        <p class="video-source" id="videoSource"></p>
+      </div>
+
+      <!-- 底部操作 -->
+      <div class="modal-actions">
+        <button class="btn-learned" id="btnLearned">✅ 标记已学</button>
+        <button class="btn-share" id="btnShare">📋 复制表达</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Toast ===== -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
