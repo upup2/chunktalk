@@ -793,5 +793,164 @@
         "video": null
       }
     ]
+  },
+  {
+    "id": "c026",
+    "chinese": "等会我们去吃什么",
+    "category": ["吃饭", "日常", "社交"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "What are you in the mood for?",
+        "usageProbability": 80,
+        "context": "最地道的问法。in the mood for = 想吃/想做什么。千万别按字面翻译成 'What shall we eat later'，太生硬了",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "What do you wanna eat?",
+        "usageProbability": 15,
+        "context": "直接但自然，wanna = want to，口语从不分开说",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Where should we grab food?",
+        "usageProbability": 5,
+        "context": "grab food = 随便弄点吃的，非常口语化",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c027",
+    "chinese": "今天我们去哪玩",
+    "category": ["社交", "日常"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "What do you wanna do today?",
+        "usageProbability": 70,
+        "context": "最常用，wanna do = 想做。注意英语里没有 'play' 对应中文的'玩'，adult说play容易引发误会",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Where should we go?",
+        "usageProbability": 20,
+        "context": "直接问地点，简单自然",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Any ideas for today?",
+        "usageProbability": 10,
+        "context": "把球抛给对方，让对方提议",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c028",
+    "chinese": "你吃不吃火锅",
+    "category": ["吃饭", "日常", "社交"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "Are you down for hotpot?",
+        "usageProbability": 60,
+        "context": "最地道！down for = 想参与、有兴趣，年轻人最高频词之一。'Do you eat hotpot or not' 是中式英语",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Wanna do hotpot?",
+        "usageProbability": 25,
+        "context": "极简风格，朋友间常用。do 在这里非常灵活，do lunch / do hotpot / do a movie",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Are you up for hotpot?",
+        "usageProbability": 10,
+        "context": "up for 和 down for 基本同义，可以互换",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "You in the mood for hotpot?",
+        "usageProbability": 5,
+        "context": "in the mood for 另一个用法，省掉了 Are，极口语",
+        "tone": "slang",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c029",
+    "chinese": "我马上就回来",
+    "category": ["日常"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "I'll be right back.",
+        "usageProbability": 90,
+        "context": "王者表达，全世界英语母语者都说这句话。比 'I will come back soon' 自然一万倍",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Be right back.",
+        "usageProbability": 8,
+        "context": "更简洁，省略了 I'll。常缩写为 BRB（发消息时用）",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "I'll be back in a sec.",
+        "usageProbability": 2,
+        "context": "sec = second，强调'真的很快'",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c030",
+    "chinese": "我马上就过来",
+    "category": ["日常", "社交"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "I'm on my way.",
+        "usageProbability": 70,
+        "context": "最安全、最常用的说法。⚠️ 千万别用 'I'm coming'——有性暗示！除非跟对方很亲密，否则非常尴尬",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Be right there.",
+        "usageProbability": 20,
+        "context": "= I'll be right there，更口语，干脆利落",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Coming!",
+        "usageProbability": 5,
+        "context": "极简，但注意上面说的！同辈之间大声喊还行，正式场合别用",
+        "tone": "slang",
+        "video": null
+      },
+      {
+        "text": "I'll be there in a minute.",
+        "usageProbability": 5,
+        "context": "稍微正式一点，报个具体时间范围",
+        "tone": "neutral",
+        "video": null
+      }
+    ]
   }
 ]

@@ -212,24 +212,21 @@ function updateVideo() {
   const expr = currentChunk.expressions[currentExprIndex];
   const video = expr.video;
 
-  if (video && video.bvid) {
+  if (video && video.youtubeId) {
     $videoContainer.classList.remove('no-video');
     const t = video.startTime || 0;
+    const end = video.endTime || (t + 10);
     $videoWrapper.innerHTML = `<iframe
-      src="https://player.bilibili.com/player.html?bvid=${video.bvid}&page=1&t=${t}&autoplay=0&high_quality=1&danmaku=0"
-      scrolling="no"
-      border="0"
-      frameborder="no"
-      framespacing="0"
-      allowfullscreen="true"
-      referrerpolicy="no-referrer"
-      sandbox="allow-scripts allow-same-origin allow-popups"
+      src="https://www.youtube.com/embed/${video.youtubeId}?start=${t}&end=${end}&autoplay=0&rel=0&modestbranding=1&cc_load_policy=1"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
     ></iframe>`;
-    $videoSource.textContent = `📺 ${video.title || 'B站视频'} · 从 ${formatTime(t)} 开始`;
+    $videoSource.textContent = `🎬 ${video.title || '真实场景片段'} · ${formatTime(t)} → ${formatTime(end)} · 来自 YouTube`;
   } else {
     $videoContainer.classList.add('no-video');
     $videoWrapper.innerHTML = '';
-    $videoSource.textContent = '这个表达还没有视频，去 B 站找一个？';
+    $videoSource.textContent = '🫙 还没视频 — 去 YouGlish.com 搜一下，把链接发给我！';
   }
 }
 
