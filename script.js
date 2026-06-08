@@ -1,6 +1,7 @@
 // ========== 应用状态 ==========
 let chunks = [];
 let currentFilter = '全部';
+let currentLearnFilter = '全部';
 let searchQuery = '';
 let currentChunk = null;
 let currentExprIndex = 0;
@@ -57,6 +58,12 @@ function getFilteredChunks() {
 
   if (currentFilter !== '全部') {
     result = result.filter(c => c.category.includes(currentFilter));
+  }
+
+  if (currentLearnFilter === '未学') {
+    result = result.filter(c => !learnedSet.has(c.id));
+  } else if (currentLearnFilter === '已学') {
+    result = result.filter(c => learnedSet.has(c.id));
   }
 
   if (searchQuery.trim()) {
@@ -340,6 +347,16 @@ function bindEvents() {
       document.querySelectorAll('.cat-tag').forEach(t => t.classList.remove('active'));
       tag.classList.add('active');
       currentFilter = tag.dataset.cat;
+      renderList();
+    });
+  });
+
+  // 学习状态筛选
+  document.querySelectorAll('.learn-tag').forEach(tag => {
+    tag.addEventListener('click', () => {
+      document.querySelectorAll('.learn-tag').forEach(t => t.classList.remove('active'));
+      tag.classList.add('active');
+      currentLearnFilter = tag.dataset.learn;
       renderList();
     });
   });

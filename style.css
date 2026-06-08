@@ -155,6 +155,36 @@ body {
   transform: scale(0.96);
 }
 
+/* ===== 学习状态筛选 ===== */
+.learn-filter-bar {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px 12px;
+}
+
+.learn-tag {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border-radius: 16px;
+  border: 1.5px solid var(--border);
+  background: var(--card-bg);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+  color: var(--text-secondary);
+}
+
+.learn-tag.active {
+  background: #22C55E;
+  color: #fff;
+  border-color: #22C55E;
+}
+
+.learn-tag:active {
+  transform: scale(0.96);
+}
+
 /* ========== Chunk 列表 ========== */
 .chunk-list {
   padding: 0 16px;
