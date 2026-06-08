@@ -10,7 +10,12 @@
         "usageProbability": 90,
         "context": "朋友见面寒暄，最常用、最自然的说法，语调上扬表示关心",
         "tone": "casual",
-        "video": null
+        "video": {
+          "youtubeId": "7dbRDavsp6I",
+          "startTime": 12,
+          "endTime": 17,
+          "title": "美国人日常寒暄 - What have you been up to"
+        }
       },
       {
         "text": "What's going on with you lately?",
