@@ -7,6 +7,8 @@ let currentExprIndex = 0;
 let learnedSet = new Set(); // 已学 chunk id 集合
 let touchStartX = 0;
 let touchEndX = 0;
+let touchStartY = 0;
+let touchEndY = 0;
 
 // ========== DOM 元素 ==========
 const $searchInput = document.getElementById('searchInput');
@@ -125,6 +127,9 @@ function openDetail(chunkId) {
 
   // 滚动到顶部
   $modal.scrollTop = 0;
+
+  // 向下滑动关闭
+  bindModalSwipeDown();
 }
 
 function closeDetail() {
@@ -211,12 +216,14 @@ function updateVideo() {
     $videoContainer.classList.remove('no-video');
     const t = video.startTime || 0;
     $videoWrapper.innerHTML = `<iframe
-      src="//player.bilibili.com/player.html?bvid=${video.bvid}&page=1&t=${t}&autoplay=0&high_quality=1"
+      src="https://player.bilibili.com/player.html?bvid=${video.bvid}&page=1&t=${t}&autoplay=0&high_quality=1&danmaku=0"
       scrolling="no"
       border="0"
       frameborder="no"
       framespacing="0"
       allowfullscreen="true"
+      referrerpolicy="no-referrer"
+      sandbox="allow-scripts allow-same-origin allow-popups"
     ></iframe>`;
     $videoSource.textContent = `📺 ${video.title || 'B站视频'} · 从 ${formatTime(t)} 开始`;
   } else {
@@ -280,6 +287,20 @@ function handleSwipe() {
     currentExprIndex--;
     updateCardPosition();
   }
+}
+
+function bindModalSwipeDown() {
+  $modal.addEventListener('touchstart', (e) => {
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  $modal.addEventListener('touchend', (e) => {
+    touchEndY = e.changedTouches[0].screenY;
+    // 只在顶部且向下滑动时关闭
+    if ($modal.scrollTop <= 10 && touchEndY - touchStartY > 80) {
+      closeDetail();
+    }
+  });
 }
 
 function updateCardPosition() {
