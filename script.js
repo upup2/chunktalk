@@ -10,10 +10,6 @@ let touchStartX = 0;
 let touchEndX = 0;
 let touchStartY = 0;
 let touchEndY = 0;
-let ytPlayer = null;
-let ytLoopInterval = null;
-let ytStartTime = 0;
-let ytEndTime = 0;
 
 // ========== DOM 元素 ==========
 const $searchInput = document.getElementById('searchInput');
@@ -144,7 +140,6 @@ function openDetail(chunkId) {
 }
 
 function closeDetail() {
-  destroyPlayer();
   $modalOverlay.classList.remove('open');
   $modal.classList.remove('open');
   document.body.style.overflow = '';
@@ -227,59 +222,24 @@ function parseTime(val) {
   return parseInt(val) || 0;
 }
 
-function destroyPlayer() {
-  if (ytLoopInterval) { clearInterval(ytLoopInterval); ytLoopInterval = null; }
-  if (ytPlayer) {
-    try { ytPlayer.destroy(); } catch(e) {}
-    ytPlayer = null;
-  }
-}
-
-function createPlayer(videoId, start, end) {
-  // YouTube API 方式：精准循环
-  if (window.YT && YT.Player) {
-    return new YT.Player($videoWrapper, {
-      videoId: videoId,
-      playerVars: { start: start, end: end, autoplay: 0, controls: 1, rel: 0, modestbranding: 1, fs: 1 },
-      events: {
-        onStateChange: (event) => {
-          if (event.data === 0) { event.target.seekTo(start); event.target.playVideo(); }
-        }
-      }
-    });
-  }
-
-  // 降级方案：普通 iframe（API 没加载完时用）
-  const div = document.createElement('div');
-  div.style.cssText = 'position:relative;padding-bottom:56.25%;height:0;';
-  div.innerHTML = `<iframe
-    src="https://www.youtube.com/embed/${videoId}?start=${start}&end=${end}&autoplay=0&rel=0&modestbranding=1&enablejsapi=1"
-    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
-  ></iframe>`;
-  return div;
-}
-
 function updateVideo() {
   if (!currentChunk) return;
-  destroyPlayer();
   const expr = currentChunk.expressions[currentExprIndex];
   const video = expr.video;
 
   if (video && video.youtubeId) {
     $videoContainer.classList.remove('no-video');
-    ytStartTime = parseTime(video.startTime || 0);
-    ytEndTime = parseTime(video.endTime || ytStartTime + 5);
+    const t = parseTime(video.startTime || 0);
+    const end = parseTime(video.endTime || t + 5);
 
-    $videoWrapper.innerHTML = '';
-    $videoSource.textContent = `🎬 ${video.title || '真实场景片段'} · ${formatTime(ytStartTime)} → ${formatTime(ytEndTime)} · 🔄 循环播放`;
-
-    const player = createPlayer(video.youtubeId, ytStartTime, ytEndTime);
-    if (player instanceof HTMLElement) {
-      $videoWrapper.appendChild(player);
-    } else {
-      ytPlayer = player;
-    }
+    $videoWrapper.innerHTML = `<iframe
+      src="https://www.youtube.com/embed/${video.youtubeId}?start=${t}&end=${end}&rel=0&modestbranding=1"
+      style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>`;
+    $videoSource.textContent = `🎬 ${video.title || '真实场景片段'} · ${formatTime(t)} → ${formatTime(end)}`;
   } else {
     $videoContainer.classList.add('no-video');
     $videoWrapper.innerHTML = '';
