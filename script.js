@@ -225,9 +225,10 @@ function parseTime(val) {
 
 let currentVideoParams = null; // { youtubeId, start, end }
 
-function buildIframe(youtubeId, start, end) {
+function buildIframe(youtubeId, start, end, autoplay) {
+  const ap = autoplay ? '&autoplay=1' : '';
   $videoWrapper.innerHTML = `<iframe
-    src="https://www.youtube.com/embed/${youtubeId}?start=${start}&end=${end}&rel=0&modestbranding=1"
+    src="https://www.youtube.com/embed/${youtubeId}?start=${start}&end=${end}&rel=0&modestbranding=1${ap}"
     style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -401,11 +402,11 @@ function bindEvents() {
     renderList();
   });
 
-  // 重播片段
+  // 重播片段（自动播放）
   $btnReplay.addEventListener('click', () => {
     if (!currentVideoParams) return;
     const v = currentVideoParams;
-    buildIframe(v.youtubeId, v.start, v.end);
+    buildIframe(v.youtubeId, v.start, v.end, true);
     showToast('🔁 重新播放');
   });
 
