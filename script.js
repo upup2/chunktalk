@@ -28,6 +28,7 @@ const $videoSource = document.getElementById('videoSource');
 const $videoContainer = document.getElementById('videoContainer');
 const $btnLearned = document.getElementById('btnLearned');
 const $btnShare = document.getElementById('btnShare');
+const $btnReplay = document.getElementById('btnReplay');
 const $toast = document.getElementById('toast');
 
 // ========== 初始化 ==========
@@ -140,7 +141,6 @@ function openDetail(chunkId) {
 }
 
 function closeDetail() {
-  destroyPlayer();
   $modalOverlay.classList.remove('open');
   $modal.classList.remove('open');
   document.body.style.overflow = '';
@@ -223,57 +223,35 @@ function parseTime(val) {
   return parseInt(val) || 0;
 }
 
-let ytApiReady = false;
-let ytPlayer = null;
-let ytStart = 0;
+let currentVideoParams = null; // { youtubeId, start, end }
 
-// YouTube API 加载完成后会调用这个函数
-window.onYouTubeIframeAPIReady = function() {
-  ytApiReady = true;
-};
-
-function destroyPlayer() {
-  if (ytPlayer) {
-    try { ytPlayer.destroy(); } catch(e) {}
-    ytPlayer = null;
-  }
+function buildIframe(youtubeId, start, end) {
+  $videoWrapper.innerHTML = `<iframe
+    src="https://www.youtube.com/embed/${youtubeId}?start=${start}&end=${end}&rel=0&modestbranding=1"
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>`;
 }
 
 function updateVideo() {
   if (!currentChunk) return;
-  destroyPlayer();
   const expr = currentChunk.expressions[currentExprIndex];
   const video = expr.video;
 
   if (video && video.youtubeId) {
     $videoContainer.classList.remove('no-video');
-    ytStart = parseTime(video.startTime || 0);
-    const end = parseTime(video.endTime || ytStart + 5);
+    const t = parseTime(video.startTime || 0);
+    const end = parseTime(video.endTime || t + 5);
+    currentVideoParams = { youtubeId: video.youtubeId, start: t, end: end };
 
-    $videoWrapper.innerHTML = '';
-    $videoSource.textContent = `🎬 ${video.title || '真实场景片段'} · ${formatTime(ytStart)} → ${formatTime(end)} · 🔄 循环播放`;
-
-    // 等 API 就绪后创建播放器
-    function makePlayer() {
-      if (!ytApiReady) { setTimeout(makePlayer, 200); return; }
-      ytPlayer = new YT.Player($videoWrapper, {
-        videoId: video.youtubeId,
-        playerVars: { start: ytStart, end: end, autoplay: 0, controls: 1, rel: 0, modestbranding: 1, fs: 1 },
-        events: {
-          onStateChange: function(event) {
-            // YT.PlayerState.ENDED = 0
-            if (event.data === 0) {
-              event.target.seekTo(ytStart);
-              event.target.playVideo();
-            }
-          }
-        }
-      });
-    }
-    setTimeout(makePlayer, 200);
+    buildIframe(video.youtubeId, t, end);
+    $videoSource.textContent = `🎬 ${video.title || '真实场景片段'} · ${formatTime(t)} → ${formatTime(end)}`;
   } else {
     $videoContainer.classList.add('no-video');
     $videoWrapper.innerHTML = '';
+    currentVideoParams = null;
     $videoSource.textContent = '🫙 还没视频 — 去 YouGlish.com 搜一下，把链接发给我！';
   }
 }
@@ -421,6 +399,14 @@ function bindEvents() {
     localStorage.setItem('chunktalk_learned', JSON.stringify([...learnedSet]));
     updateLearnedButton();
     renderList();
+  });
+
+  // 重播片段
+  $btnReplay.addEventListener('click', () => {
+    if (!currentVideoParams) return;
+    const v = currentVideoParams;
+    buildIframe(v.youtubeId, v.start, v.end);
+    showToast('🔁 重新播放');
   });
 
   // 复制表达

@@ -511,6 +511,30 @@ body {
   border: none;
 }
 
+.video-controls {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 4px;
+}
+
+.btn-replay {
+  padding: 10px 24px;
+  border-radius: 22px;
+  border: 1.5px solid var(--primary);
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-replay:active {
+  transform: scale(0.95);
+  background: var(--primary);
+  color: #fff;
+}
+
 .video-source {
   font-size: 0.75rem;
   color: var(--text-muted);
