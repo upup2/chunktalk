@@ -44,7 +44,12 @@
         "usageProbability": 85,
         "context": "最直接的翻译，朋友间日常问候",
         "tone": "casual",
-        "video": null
+        "video": {
+          "youtubeId": "q-8fTAEORNs",
+          "startTime": 270,
+          "endTime": 275,
+          "title": "日常问候 - Did you eat yet"
+        }
       },
       {
         "text": "Have you had lunch?",

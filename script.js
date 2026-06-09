@@ -224,12 +224,12 @@ function updateVideo() {
     const t = video.startTime || 0;
     const end = video.endTime || (t + 10);
     $videoWrapper.innerHTML = `<iframe
-      src="https://www.youtube.com/embed/${video.youtubeId}?start=${t}&end=${end}&autoplay=0&rel=0&modestbranding=1&cc_load_policy=1"
+      src="https://www.youtube.com/embed/${video.youtubeId}?start=${t}&end=${end}&autoplay=0&loop=1&playlist=${video.youtubeId}&rel=0&modestbranding=1&cc_load_policy=1"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
     ></iframe>`;
-    $videoSource.textContent = `🎬 ${video.title || '真实场景片段'} · ${formatTime(t)} → ${formatTime(end)} · 来自 YouTube`;
+    $videoSource.textContent = `🎬 ${video.title || '真实场景片段'} · ${formatTime(t)} → ${formatTime(end)} · 🔄 循环播放`;
   } else {
     $videoContainer.classList.add('no-video');
     $videoWrapper.innerHTML = '';
@@ -240,7 +240,7 @@ function updateVideo() {
 function formatTime(seconds) {
   const m = Math.floor(seconds / 60);
   const s = seconds % 60;
-  return `${m}分${s}秒`;
+  return `${m}:${String(s).padStart(2, '0')}`;
 }
 
 // ========== 卡片滑动 ==========
