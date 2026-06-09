@@ -225,15 +225,32 @@ function parseTime(val) {
 
 let currentVideoParams = null; // { youtubeId, start, end }
 
-function buildIframe(youtubeId, start, end, autoplay) {
-  const ap = autoplay ? '&autoplay=1' : '';
+function buildIframe(youtubeId, start, end) {
   $videoWrapper.innerHTML = `<iframe
-    src="https://www.youtube.com/embed/${youtubeId}?start=${start}&end=${end}&rel=0&modestbranding=1${ap}"
+    id="ytplayer"
+    src="https://www.youtube.com/embed/${youtubeId}?start=${start}&end=${end}&rel=0&modestbranding=1&enablejsapi=1"
     style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen
   ></iframe>`;
+}
+
+function replayVideo() {
+  const iframe = document.getElementById('ytplayer');
+  if (!iframe || !currentVideoParams) return;
+  // 用 postMessage 命令现有 iframe：跳回起点 + 播放
+  iframe.contentWindow.postMessage(JSON.stringify({
+    event: 'command',
+    func: 'seekTo',
+    args: [currentVideoParams.start]
+  }), '*');
+  setTimeout(() => {
+    iframe.contentWindow.postMessage(JSON.stringify({
+      event: 'command',
+      func: 'playVideo'
+    }), '*');
+  }, 200);
 }
 
 function updateVideo() {
@@ -402,12 +419,10 @@ function bindEvents() {
     renderList();
   });
 
-  // 重播片段（自动播放）
+  // 重播片段
   $btnReplay.addEventListener('click', () => {
-    if (!currentVideoParams) return;
-    const v = currentVideoParams;
-    buildIframe(v.youtubeId, v.start, v.end, true);
-    showToast('🔁 重新播放');
+    replayVideo();
+    showToast('🔁 从 ' + formatTime(currentVideoParams.start) + ' 重新播放');
   });
 
   // 复制表达
