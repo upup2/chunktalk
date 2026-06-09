@@ -228,7 +228,8 @@ let currentVideoParams = null; // { youtubeId, start, end }
 function buildIframe(youtubeId, start, end) {
   const iframe = document.createElement('iframe');
   iframe.id = 'ytplayer';
-  iframe.src = `https://www.youtube.com/embed/${youtubeId}?start=${start}&end=${end}&rel=0&modestbranding=1`;
+  // enablejsapi=1 让 postMessage 命令可用
+  iframe.src = `https://www.youtube.com/embed/${youtubeId}?start=${start}&end=${end}&rel=0&modestbranding=1&enablejsapi=1`;
   iframe.setAttribute('frameborder', '0');
   iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
   iframe.setAttribute('allowfullscreen', '');
@@ -240,15 +241,31 @@ function buildIframe(youtubeId, start, end) {
 function replayVideo() {
   if (!currentVideoParams) return;
   const v = currentVideoParams;
-  // 直接在点击事件里创建带 autoplay 的 iframe，浏览器不会拦
-  const iframe = document.createElement('iframe');
-  iframe.src = `https://www.youtube.com/embed/${v.youtubeId}?start=${v.start}&end=${v.end}&autoplay=1&rel=0&modestbranding=1`;
-  iframe.setAttribute('frameborder', '0');
-  iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-  iframe.setAttribute('allowfullscreen', '');
-  iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
+  const iframe = document.getElementById('ytplayer');
+
+  // 优先用 postMessage 命令现有 iframe（秒级响应，无广告加载）
+  if (iframe && iframe.contentWindow) {
+    iframe.contentWindow.postMessage(JSON.stringify({
+      event: 'command', func: 'seekTo', args: [v.start]
+    }), '*');
+    setTimeout(() => {
+      iframe.contentWindow.postMessage(JSON.stringify({
+        event: 'command', func: 'playVideo'
+      }), '*');
+    }, 150);
+    return;
+  }
+
+  // 降级：重建 iframe
+  const newIframe = document.createElement('iframe');
+  newIframe.id = 'ytplayer';
+  newIframe.src = `https://www.youtube.com/embed/${v.youtubeId}?start=${v.start}&end=${v.end}&autoplay=1&rel=0&modestbranding=1`;
+  newIframe.setAttribute('frameborder', '0');
+  newIframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+  newIframe.setAttribute('allowfullscreen', '');
+  newIframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
   $videoWrapper.innerHTML = '';
-  $videoWrapper.appendChild(iframe);
+  $videoWrapper.appendChild(newIframe);
 }
 
 function updateVideo() {
