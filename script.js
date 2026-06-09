@@ -214,6 +214,14 @@ function updateLearnedButton() {
 }
 
 // ========== 视频 ==========
+function parseTime(val) {
+  if (typeof val === 'string' && val.includes(':')) {
+    const parts = val.split(':');
+    return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+  }
+  return parseInt(val) || 0;
+}
+
 function updateVideo() {
   if (!currentChunk) return;
   const expr = currentChunk.expressions[currentExprIndex];
@@ -221,15 +229,30 @@ function updateVideo() {
 
   if (video && video.youtubeId) {
     $videoContainer.classList.remove('no-video');
-    const t = video.startTime || 0;
-    const end = video.endTime || (t + 10);
-    $videoWrapper.innerHTML = `<iframe
-      src="https://www.youtube.com/embed/${video.youtubeId}?start=${t}&end=${end}&autoplay=0&loop=1&playlist=${video.youtubeId}&rel=0&modestbranding=1&cc_load_policy=1"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>`;
+    const t = parseTime(video.startTime || 0);
+    const end = parseTime(video.endTime || (typeof video.startTime === 'string'
+      ? parseTime(video.startTime) + 5
+      : (parseInt(video.startTime) || 0) + 5));
+
+    // 先显示加载状态，延迟加载 iframe 避免首次卡顿
+    $videoWrapper.innerHTML = `<div class="video-loading">🎬 点击播放片段</div>`;
     $videoSource.textContent = `🎬 ${video.title || '真实场景片段'} · ${formatTime(t)} → ${formatTime(end)} · 🔄 循环播放`;
+
+    // 延迟加载 YouTube 播放器
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${video.youtubeId}?start=${t}&end=${end}&autoplay=0&loop=1&playlist=${video.youtubeId}&rel=0&modestbranding=1`;
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
+    iframe.onload = () => {
+      $videoWrapper.querySelector('.video-loading')?.remove();
+    };
+
+    // 延迟 200ms 加载，让弹窗动画先完成
+    setTimeout(() => {
+      $videoWrapper.appendChild(iframe);
+    }, 200);
   } else {
     $videoContainer.classList.add('no-video');
     $videoWrapper.innerHTML = '';
