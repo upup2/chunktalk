@@ -226,31 +226,29 @@ function parseTime(val) {
 let currentVideoParams = null; // { youtubeId, start, end }
 
 function buildIframe(youtubeId, start, end) {
-  $videoWrapper.innerHTML = `<iframe
-    id="ytplayer"
-    src="https://www.youtube.com/embed/${youtubeId}?start=${start}&end=${end}&rel=0&modestbranding=1&enablejsapi=1"
-    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-  ></iframe>`;
+  const iframe = document.createElement('iframe');
+  iframe.id = 'ytplayer';
+  iframe.src = `https://www.youtube.com/embed/${youtubeId}?start=${start}&end=${end}&rel=0&modestbranding=1`;
+  iframe.setAttribute('frameborder', '0');
+  iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+  iframe.setAttribute('allowfullscreen', '');
+  iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
+  $videoWrapper.innerHTML = '';
+  $videoWrapper.appendChild(iframe);
 }
 
 function replayVideo() {
-  const iframe = document.getElementById('ytplayer');
-  if (!iframe || !currentVideoParams) return;
-  // 用 postMessage 命令现有 iframe：跳回起点 + 播放
-  iframe.contentWindow.postMessage(JSON.stringify({
-    event: 'command',
-    func: 'seekTo',
-    args: [currentVideoParams.start]
-  }), '*');
-  setTimeout(() => {
-    iframe.contentWindow.postMessage(JSON.stringify({
-      event: 'command',
-      func: 'playVideo'
-    }), '*');
-  }, 200);
+  if (!currentVideoParams) return;
+  const v = currentVideoParams;
+  // 直接在点击事件里创建带 autoplay 的 iframe，浏览器不会拦
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://www.youtube.com/embed/${v.youtubeId}?start=${v.start}&end=${v.end}&autoplay=1&rel=0&modestbranding=1`;
+  iframe.setAttribute('frameborder', '0');
+  iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+  iframe.setAttribute('allowfullscreen', '');
+  iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
+  $videoWrapper.innerHTML = '';
+  $videoWrapper.appendChild(iframe);
 }
 
 function updateVideo() {
