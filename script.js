@@ -10,6 +10,10 @@ let touchStartX = 0;
 let touchEndX = 0;
 let touchStartY = 0;
 let touchEndY = 0;
+let ytPlayer = null;
+let ytLoopInterval = null;
+let ytStartTime = 0;
+let ytEndTime = 0;
 
 // ========== DOM 元素 ==========
 const $searchInput = document.getElementById('searchInput');
@@ -140,6 +144,7 @@ function openDetail(chunkId) {
 }
 
 function closeDetail() {
+  destroyPlayer();
   $modalOverlay.classList.remove('open');
   $modal.classList.remove('open');
   document.body.style.overflow = '';
@@ -222,37 +227,58 @@ function parseTime(val) {
   return parseInt(val) || 0;
 }
 
+function destroyPlayer() {
+  if (ytLoopInterval) { clearInterval(ytLoopInterval); ytLoopInterval = null; }
+  if (ytPlayer) {
+    try { ytPlayer.destroy(); } catch(e) {}
+    ytPlayer = null;
+  }
+}
+
 function updateVideo() {
   if (!currentChunk) return;
+  destroyPlayer();
   const expr = currentChunk.expressions[currentExprIndex];
   const video = expr.video;
 
   if (video && video.youtubeId) {
     $videoContainer.classList.remove('no-video');
-    const t = parseTime(video.startTime || 0);
-    const end = parseTime(video.endTime || (typeof video.startTime === 'string'
-      ? parseTime(video.startTime) + 5
-      : (parseInt(video.startTime) || 0) + 5));
+    ytStartTime = parseTime(video.startTime || 0);
+    ytEndTime = parseTime(video.endTime || ytStartTime + 5);
 
-    // 先显示加载状态，延迟加载 iframe 避免首次卡顿
-    $videoWrapper.innerHTML = `<div class="video-loading">🎬 点击播放片段</div>`;
-    $videoSource.textContent = `🎬 ${video.title || '真实场景片段'} · ${formatTime(t)} → ${formatTime(end)} · 🔄 循环播放`;
+    // 先显示加载提示
+    $videoWrapper.innerHTML = `<div class="video-loading">🎬 加载视频片段中…</div>`;
+    $videoSource.textContent = `🎬 ${video.title || '真实场景片段'} · ${formatTime(ytStartTime)} → ${formatTime(ytEndTime)} · 🔄 循环播放`;
 
-    // 延迟加载 YouTube 播放器
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://www.youtube.com/embed/${video.youtubeId}?start=${t}&end=${end}&autoplay=0&loop=1&playlist=${video.youtubeId}&rel=0&modestbranding=1`;
-    iframe.setAttribute('frameborder', '0');
-    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-    iframe.setAttribute('allowfullscreen', '');
-    iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
-    iframe.onload = () => {
-      $videoWrapper.querySelector('.video-loading')?.remove();
-    };
-
-    // 延迟 200ms 加载，让弹窗动画先完成
+    // 用 YouTube API 创建播放器
     setTimeout(() => {
-      $videoWrapper.appendChild(iframe);
-    }, 200);
+      $videoWrapper.innerHTML = '';
+      ytPlayer = new YT.Player($videoWrapper, {
+        videoId: video.youtubeId,
+        playerVars: {
+          start: ytStartTime,
+          end: ytEndTime,
+          autoplay: 0,
+          controls: 1,
+          rel: 0,
+          modestbranding: 1,
+          fs: 1
+        },
+        events: {
+          onReady: (event) => {
+            // 播放器就绪
+          },
+          onStateChange: (event) => {
+            // YT.PlayerState.ENDED = 0, PLAYING = 1
+            if (event.data === 0) {
+              // 视频播放完毕 → 回到开始时间继续循环
+              event.target.seekTo(ytStartTime);
+              event.target.playVideo();
+            }
+          }
+        }
+      });
+    }, 250);
   } else {
     $videoContainer.classList.add('no-video');
     $videoWrapper.innerHTML = '';
