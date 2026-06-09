@@ -386,9 +386,8 @@ function bindEvents() {
   $btnShare.addEventListener('click', () => {
     if (!currentChunk) return;
     const expr = currentChunk.expressions[currentExprIndex];
-    const text = `${currentChunk.chinese}\n→ ${expr.text}\n\n💡 ${expr.context}`;
-    navigator.clipboard.writeText(text).then(() => {
-      showToast('📋 已复制到剪贴板！');
+    navigator.clipboard.writeText(expr.text).then(() => {
+      showToast('📋 已复制: ' + expr.text);
     }).catch(() => {
       showToast('复制失败，请手动复制');
     });

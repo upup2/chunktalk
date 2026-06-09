@@ -1051,5 +1051,389 @@
         "video": null
       }
     ]
+  },
+  {
+    "id": "c034",
+    "chinese": "挺好的呀",
+    "category": ["日常", "社交"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "Not bad!",
+        "usageProbability": 70,
+        "context": "最常用！注意语气要轻松上扬。中文'挺好的'不是'great'，是'还行、不错'，用 not bad 最贴切",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Pretty good!",
+        "usageProbability": 20,
+        "context": "比 not bad 稍微积极一点，但还很随意",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "It's all good.",
+        "usageProbability": 10,
+        "context": "带点'没事、都挺好'的松弛感",
+        "tone": "slang",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c035",
+    "chinese": "咋样咋样",
+    "category": ["日常", "社交"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "So? How'd it go?",
+        "usageProbability": 80,
+        "context": "急切想知道结果的追问，完美对应中文'咋样咋样'的八卦语气",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Well? Spill it!",
+        "usageProbability": 15,
+        "context": "spill it = 快说、别藏着。极强的催促语气",
+        "tone": "slang",
+        "video": null
+      },
+      {
+        "text": "And? What happened?",
+        "usageProbability": 5,
+        "context": "稍微正常一点的追问",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c036",
+    "chinese": "你是不是用了什么东西",
+    "category": ["日常"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "Did you use something?",
+        "usageProbability": 60,
+        "context": "最直接。可以指工具、产品、作弊手段等，根据上下文决定语气",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Are you using some kind of...?",
+        "usageProbability": 25,
+        "context": "话没说完，留给对方接。适合不确定具体是什么的情况",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "What did you use on that?",
+        "usageProbability": 15,
+        "context": "更具体，指向某个结果或效果",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c037",
+    "chinese": "你是不是用了服务器",
+    "category": ["工作", "日常"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "Are you using a server?",
+        "usageProbability": 70,
+        "context": "最自然直接的问法",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Did you set up a server for this?",
+        "usageProbability": 20,
+        "context": "暗示'你是不是自己搭了个服务器'，更技术向",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "Is this running on a server?",
+        "usageProbability": 10,
+        "context": "更偏技术口吻，问'这个东西是不是跑在服务器上的'",
+        "tone": "neutral",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c038",
+    "chinese": "你发音好标准",
+    "category": ["社交", "日常"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "Your pronunciation is spot on.",
+        "usageProbability": 65,
+        "context": "spot on = 非常准确、到位。英国人美国人通用，比 'very good' 地道得多",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "You sound just like a native speaker!",
+        "usageProbability": 25,
+        "context": "更高一级的夸奖，'你听起来就跟母语者一样'",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Your accent is really good.",
+        "usageProbability": 10,
+        "context": "直接夸口音好，简单明了",
+        "tone": "neutral",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c039",
+    "chinese": "我得去了解一下",
+    "category": ["日常", "工作"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "I need to look into that.",
+        "usageProbability": 70,
+        "context": "最常用。look into = 去了解、去研究。比 'I need to learn about it' 自然得多",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "Let me check that out.",
+        "usageProbability": 20,
+        "context": "更随意，check out = 去看看、去了解一下",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "I gotta read up on that.",
+        "usageProbability": 10,
+        "context": "read up on = 补习、查阅，强调需要花时间学习",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c040",
+    "chinese": "但是我确实不知道它是干啥的",
+    "category": ["日常", "工作"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "But I honestly have no clue what it does.",
+        "usageProbability": 70,
+        "context": "honestly = 确实/说实话，no clue = 完全不知道。完美对应'确实不知道'的语气",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "But I really don't know what it's for.",
+        "usageProbability": 20,
+        "context": "更直接，what it's for = 它干什么用的",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "I actually have no idea what it does, though.",
+        "usageProbability": 10,
+        "context": "though 放句尾是口语习惯，带点'不过说真的…'的语气",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c041",
+    "chinese": "这个快递3天没取了，帮我取一下",
+    "category": ["日常"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "This package has been sitting here for three days. Can you grab it for me?",
+        "usageProbability": 70,
+        "context": "sit here = 放在这里没动。grab = 顺手拿/取。两个词把整句话的味道全带出来了",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Can you pick up this package? It's been sitting here for three days.",
+        "usageProbability": 20,
+        "context": "pick up = 取快递/包裹的标准表达",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "This package has been here for three days — can you go get it?",
+        "usageProbability": 10,
+        "context": "更简洁直接",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c042",
+    "chinese": "见机行事",
+    "category": ["日常", "社交", "工作"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "Play it by ear.",
+        "usageProbability": 85,
+        "context": "王者级地道表达！字面是'靠耳朵演奏'，实际是'看情况再说、见机行事'。美国人天天用",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Just see how it goes.",
+        "usageProbability": 10,
+        "context": "'看看情况再说'，也很常用",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "We'll wing it.",
+        "usageProbability": 5,
+        "context": "wing it = 即兴发挥、临场应变。没准备也要硬上的感觉",
+        "tone": "slang",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c043",
+    "chinese": "大概要两个多小时",
+    "category": ["日常"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "It'll be a little over two hours.",
+        "usageProbability": 70,
+        "context": "a little over = 稍微超过。精准对应'两个多小时'",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Probably about two hours.",
+        "usageProbability": 20,
+        "context": "大约两小时，比较模糊的估算",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Around two hours, give or take.",
+        "usageProbability": 10,
+        "context": "give or take = 大概、左右，非常口语",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c044",
+    "chinese": "你爸他们刚才出发了",
+    "category": ["日常"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "Your dad and them just took off.",
+        "usageProbability": 65,
+        "context": "and them = 和他们那帮人。took off = 出发/走了，最口语的说法。完美对应中文'你爸他们'",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Your dad and the others just left.",
+        "usageProbability": 25,
+        "context": "稍微标准一点的说法",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "Your dad's group just headed out.",
+        "usageProbability": 10,
+        "context": "head out = 出发，也很常用",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c045",
+    "chinese": "你买点早餐给爷爷吃",
+    "category": ["日常", "吃饭"],
+    "frequency": "medium",
+    "expressions": [
+      {
+        "text": "Grab some breakfast for grandpa.",
+        "usageProbability": 70,
+        "context": "grab = 顺手买/带。英语里'买吃的'很少说 buy，日常都用 grab/pick up/get",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Pick up some breakfast for grandpa.",
+        "usageProbability": 20,
+        "context": "pick up 也是'顺便买'的常用表达",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Get grandpa some breakfast, will you?",
+        "usageProbability": 10,
+        "context": "will you 结尾带点'帮个忙呗'的语气",
+        "tone": "casual",
+        "video": null
+      }
+    ]
+  },
+  {
+    "id": "c046",
+    "chinese": "我真的服了",
+    "category": ["日常", "情感"],
+    "frequency": "high",
+    "expressions": [
+      {
+        "text": "I can't even.",
+        "usageProbability": 55,
+        "context": "年轻人最常用的无语表达！字面'我连…都做不到了'，实际就是'我服了、我无语了'。后面不需要接任何词",
+        "tone": "slang",
+        "video": null
+      },
+      {
+        "text": "I'm so done.",
+        "usageProbability": 30,
+        "context": "done = 受够了、到此为止。语气强烈但不粗鲁",
+        "tone": "casual",
+        "video": null
+      },
+      {
+        "text": "Unbelievable.",
+        "usageProbability": 10,
+        "context": "一个词就够，表示难以置信/服了",
+        "tone": "neutral",
+        "video": null
+      },
+      {
+        "text": "You've got to be kidding me.",
+        "usageProbability": 5,
+        "context": "偏'你在逗我吧'的意思，带点愤怒/无奈",
+        "tone": "casual",
+        "video": null
+      }
+    ]
   }
 ]
