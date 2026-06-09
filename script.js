@@ -222,6 +222,8 @@ function parseTime(val) {
   return parseInt(val) || 0;
 }
 
+let currentVideoStart = 0;
+
 function updateVideo() {
   if (!currentChunk) return;
   const expr = currentChunk.expressions[currentExprIndex];
@@ -231,21 +233,47 @@ function updateVideo() {
     $videoContainer.classList.remove('no-video');
     const t = parseTime(video.startTime || 0);
     const end = parseTime(video.endTime || t + 5);
+    currentVideoStart = t;
 
     $videoWrapper.innerHTML = `<iframe
-      src="https://www.youtube.com/embed/${video.youtubeId}?start=${t}&end=${end}&rel=0&modestbranding=1"
+      id="ytplayer"
+      src="https://www.youtube.com/embed/${video.youtubeId}?start=${t}&end=${end}&rel=0&modestbranding=1&enablejsapi=1"
       style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
     ></iframe>`;
-    $videoSource.textContent = `🎬 ${video.title || '真实场景片段'} · ${formatTime(t)} → ${formatTime(end)}`;
+    $videoSource.textContent = `🎬 ${video.title || '真实场景片段'} · ${formatTime(t)} → ${formatTime(end)} · 🔄 循环播放`;
   } else {
     $videoContainer.classList.add('no-video');
     $videoWrapper.innerHTML = '';
     $videoSource.textContent = '🫙 还没视频 — 去 YouGlish.com 搜一下，把链接发给我！';
   }
 }
+
+// 用 postMessage 监听视频结束 → 自动循环
+window.addEventListener('message', (e) => {
+  if (!e.origin.startsWith('https://www.youtube.com')) return;
+  let data;
+  try { data = JSON.parse(e.data); } catch(err) { return; }
+  // 视频播放结束 (state 0 = ENDED)
+  if (data.event === 'onStateChange' && data.info === 0 && currentVideoStart > 0) {
+    const iframe = document.getElementById('ytplayer');
+    if (iframe) {
+      iframe.contentWindow.postMessage(JSON.stringify({
+        event: 'command',
+        func: 'seekTo',
+        args: [currentVideoStart]
+      }), '*');
+      setTimeout(() => {
+        iframe.contentWindow.postMessage(JSON.stringify({
+          event: 'command',
+          func: 'playVideo'
+        }), '*');
+      }, 300);
+    }
+  }
+});
 
 function formatTime(seconds) {
   const m = Math.floor(seconds / 60);
