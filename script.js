@@ -140,6 +140,7 @@ function openDetail(chunkId) {
 }
 
 function closeDetail() {
+  destroyPlayer();
   $modalOverlay.classList.remove('open');
   $modal.classList.remove('open');
   document.body.style.overflow = '';
@@ -222,58 +223,60 @@ function parseTime(val) {
   return parseInt(val) || 0;
 }
 
-let currentVideoStart = 0;
+let ytApiReady = false;
+let ytPlayer = null;
+let ytStart = 0;
+
+// YouTube API 加载完成后会调用这个函数
+window.onYouTubeIframeAPIReady = function() {
+  ytApiReady = true;
+};
+
+function destroyPlayer() {
+  if (ytPlayer) {
+    try { ytPlayer.destroy(); } catch(e) {}
+    ytPlayer = null;
+  }
+}
 
 function updateVideo() {
   if (!currentChunk) return;
+  destroyPlayer();
   const expr = currentChunk.expressions[currentExprIndex];
   const video = expr.video;
 
   if (video && video.youtubeId) {
     $videoContainer.classList.remove('no-video');
-    const t = parseTime(video.startTime || 0);
-    const end = parseTime(video.endTime || t + 5);
-    currentVideoStart = t;
+    ytStart = parseTime(video.startTime || 0);
+    const end = parseTime(video.endTime || ytStart + 5);
 
-    $videoWrapper.innerHTML = `<iframe
-      id="ytplayer"
-      src="https://www.youtube.com/embed/${video.youtubeId}?start=${t}&end=${end}&rel=0&modestbranding=1&enablejsapi=1"
-      style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>`;
-    $videoSource.textContent = `🎬 ${video.title || '真实场景片段'} · ${formatTime(t)} → ${formatTime(end)} · 🔄 循环播放`;
+    $videoWrapper.innerHTML = '';
+    $videoSource.textContent = `🎬 ${video.title || '真实场景片段'} · ${formatTime(ytStart)} → ${formatTime(end)} · 🔄 循环播放`;
+
+    // 等 API 就绪后创建播放器
+    function makePlayer() {
+      if (!ytApiReady) { setTimeout(makePlayer, 200); return; }
+      ytPlayer = new YT.Player($videoWrapper, {
+        videoId: video.youtubeId,
+        playerVars: { start: ytStart, end: end, autoplay: 0, controls: 1, rel: 0, modestbranding: 1, fs: 1 },
+        events: {
+          onStateChange: function(event) {
+            // YT.PlayerState.ENDED = 0
+            if (event.data === 0) {
+              event.target.seekTo(ytStart);
+              event.target.playVideo();
+            }
+          }
+        }
+      });
+    }
+    setTimeout(makePlayer, 200);
   } else {
     $videoContainer.classList.add('no-video');
     $videoWrapper.innerHTML = '';
     $videoSource.textContent = '🫙 还没视频 — 去 YouGlish.com 搜一下，把链接发给我！';
   }
 }
-
-// 用 postMessage 监听视频结束 → 自动循环
-window.addEventListener('message', (e) => {
-  if (!e.origin.startsWith('https://www.youtube.com')) return;
-  let data;
-  try { data = JSON.parse(e.data); } catch(err) { return; }
-  // 视频播放结束 (state 0 = ENDED)
-  if (data.event === 'onStateChange' && data.info === 0 && currentVideoStart > 0) {
-    const iframe = document.getElementById('ytplayer');
-    if (iframe) {
-      iframe.contentWindow.postMessage(JSON.stringify({
-        event: 'command',
-        func: 'seekTo',
-        args: [currentVideoStart]
-      }), '*');
-      setTimeout(() => {
-        iframe.contentWindow.postMessage(JSON.stringify({
-          event: 'command',
-          func: 'playVideo'
-        }), '*');
-      }, 300);
-    }
-  }
-});
 
 function formatTime(seconds) {
   const m = Math.floor(seconds / 60);
